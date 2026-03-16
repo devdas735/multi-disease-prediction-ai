@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/assets/fonts/PlusJakartaSans.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/BricolageGrotesque.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Healthcare Blues & Teals */
+    --background: 0.975 0.004 240;
+    --foreground: 0.18 0.03 240;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 240;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 240;
+
+    /* Sky Blue primary */
+    --primary: 0.6 0.18 220;
+    --primary-foreground: 1 0 0;
+
+    /* Teal secondary */
+    --secondary: 0.56 0.12 185;
+    --secondary-foreground: 1 0 0;
+
+    --muted: 0.94 0.012 240;
+    --muted-foreground: 0.52 0.02 240;
+
+    --accent: 0.92 0.025 210;
+    --accent-foreground: 0.25 0.05 220;
+
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.88 0.02 240;
+    --input: 0.88 0.02 240;
+    --ring: 0.6 0.18 220;
+
+    /* Risk Colors */
+    --risk-low: 0.62 0.17 145;
+    --risk-medium: 0.72 0.18 75;
+    --risk-high: 0.58 0.22 25;
+
+    /* Charts */
+    --chart-1: 0.6 0.18 220;
+    --chart-2: 0.56 0.12 185;
+    --chart-3: 0.7 0.15 160;
+    --chart-4: 0.65 0.18 270;
+    --chart-5: 0.72 0.18 75;
+
+    /* Sidebar */
+    --sidebar: 0.175 0.025 250;
+    --sidebar-foreground: 0.92 0.01 240;
+    --sidebar-primary: 0.6 0.18 220;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.25 0.035 250;
+    --sidebar-accent-foreground: 0.92 0.01 240;
+    --sidebar-border: 0.25 0.03 250;
+    --sidebar-ring: 0.6 0.18 220;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+}
+
+@layer utilities {
+  .risk-low {
+    background-color: oklch(0.92 0.08 145);
+    color: oklch(0.32 0.12 145);
+  }
+  .risk-medium {
+    background-color: oklch(0.95 0.08 75);
+    color: oklch(0.42 0.14 60);
+  }
+  .risk-high {
+    background-color: oklch(0.93 0.08 25);
+    color: oklch(0.42 0.18 25);
+  }
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors;
+    color: oklch(var(--sidebar-foreground));
+  }
+  .sidebar-item:hover {
+    background-color: oklch(var(--sidebar-accent));
+  }
+  .sidebar-item.active {
+    background-color: oklch(var(--sidebar-primary) / 0.2);
+    color: oklch(var(--sidebar-primary));
+  }
+}
